@@ -13,19 +13,26 @@ public class ClienteService {
     @Autowired
     ClienteRepository clienteRepository;
 
-    public List<Cliente> getClientes(){
+    public List<Cliente> getClientes() {
         return clienteRepository.findAll();
     }
 
-    public Optional<Cliente> getCliente(Integer cedula){
-        return  clienteRepository.findById(cedula);
+    public Cliente getCliente(String cedula) {
+        Cliente cliRes = null;
+        List<Cliente> clienteList = clienteRepository.findAll();
+        for (int i = 0; i < clienteList.size(); i++) {
+            if (clienteList.get(i).getCedula().equals(cedula)) {
+                cliRes = clienteList.get(i);
+            }
+        }
+        return cliRes;
     }
 
-    public void saveOrUpdate(Cliente cliente){
+    public void saveOrUpdate(Cliente cliente) {
         clienteRepository.save(cliente);
     }
 
-    public void delete(Integer cedula){
-        clienteRepository.deleteById(cedula);
+    public void delete(Integer idCliente) {
+        clienteRepository.deleteById(idCliente);
     }
 }
