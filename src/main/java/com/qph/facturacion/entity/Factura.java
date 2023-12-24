@@ -14,8 +14,7 @@ public class Factura {
     private int idFactura;
     @Column(name = "idCliente" , unique = false, nullable = false)
     private String idCliente;
-    @Column(name = "idPedido" , unique = false, nullable = false)
-    private int idPedido;
+
     @Column(name = "idProveedor" , unique = false, nullable = false)
     private String  idProveedor;
 }

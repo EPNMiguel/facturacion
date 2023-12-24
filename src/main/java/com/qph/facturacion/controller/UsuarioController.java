@@ -5,6 +5,9 @@ import com.qph.facturacion.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController()
 @RequestMapping(path = "api/v1/usuario")
 public class UsuarioController {
@@ -12,7 +15,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping("/valida")
-    public boolean ValidaEntrada(@RequestBody Usuario user) {
-        return usuarioService.ValidaEntrada(user.getUser(), user.getPassword());
+    public Map<String, Integer> ValidaEntrada(@RequestBody Usuario user) {
+         return usuarioService.ValidaEntrada(user.getUser(), user.getPassword());
     }
 }

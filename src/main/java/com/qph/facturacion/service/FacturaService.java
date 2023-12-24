@@ -6,6 +6,7 @@ import com.qph.facturacion.repository.FacturaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.Console;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ public class FacturaService {
     FacturaRepository facturaRepository;
 
     public List<Factura> getFacturas() {
+        System.out.println("entroAAAA");
         return facturaRepository.findAll();
     }
 
