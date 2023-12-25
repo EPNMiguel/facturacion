@@ -16,7 +16,7 @@ public class ProductoController {
     private ProductoService productoService;
 
     @GetMapping("/{idProducto}")
-    public Optional<Producto> getOne(Integer idProducto) {
+    public Optional<Producto> getOne(Long idProducto) {
         return productoService.getProducto(idProducto);
 
     }
@@ -27,7 +27,7 @@ public class ProductoController {
     }
 
     @DeleteMapping("/{idProducto}")
-    public void delete(@PathVariable("idProducto") Integer idProducto) {
+    public void delete(@PathVariable("idProducto") Long idProducto) {
         productoService.delete(idProducto);
     }
 }

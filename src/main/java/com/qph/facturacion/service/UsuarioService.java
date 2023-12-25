@@ -21,11 +21,11 @@ public Map<String, Integer> ValidaEntrada(String user, String pass){
     List<Usuario> userList =usuarioRepository.findAll();
   for(int i = 0; i<userList.size();i++){
       System.out.println(i + " userList.get(i): " + userList.get(i));
-      if(userList.get(i).getUser().equals(user)){
+      if(userList.get(i).getUserName().equals(user)){
           System.out.println("USER CORRECTO ");
-          if(userList.get(i).getPassword().equals(pass)){
+          if(userList.get(i).getUserPass().equals(pass)){
               System.out.println("PASS CORRECTO ");
-              map.put("rol", userList.get(i).getRol());
+              map.put("rol", 1);
               break;
           }
       }

@@ -3,7 +3,7 @@ package com.qph.facturacion.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Data
+
 @Entity
 @Table(name = "cliente")
 
@@ -23,6 +23,9 @@ public class Cliente {
 
     @Column(name = "correo" , unique = false , nullable = false)
     private String correo;
+
+    @Column(name = "direccion" , unique = false , nullable = false)
+    private String direccion;
 
     public String getCedula() {
         return cedula;
