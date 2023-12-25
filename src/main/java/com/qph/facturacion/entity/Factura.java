@@ -16,8 +16,10 @@ public class Factura {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_factura" , unique = true, nullable = false)
     private long idFactura;
-    @Column(name = "id_cliente" , unique = false, nullable = false)
-    private String idCliente;
+
+    @ManyToOne()
+    @JoinColumn(name = "id_cliente" , nullable = false)
+    private Cliente cliente;
 
     @Column(name = "fecha" , nullable = false , insertable = true , updatable = false)
     @CreationTimestamp
