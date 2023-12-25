@@ -2,39 +2,32 @@ package com.qph.facturacion.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
 @Entity
 @Table(name = "pedido")
-public class Pedido {
+public class Pedido implements Serializable {
 
     @EmbeddedId
-    private pedidoPK id;
+    private PedidoPK id;
 
-    @Column (name = "cantidad" , unique = false , nullable = false)
+    @Column(name = "cantidad", unique = false, nullable = false)
     private int cantidad;
-    @Column (name = "subtotal" , unique = false , nullable = false)
+    @Column(name = "subtotal", unique = false, nullable = false)
     private BigDecimal subtotal;
-    @Column (name = "iva" , unique = false , nullable = false)
+    @Column(name = "iva", unique = false, nullable = false)
     private BigDecimal iva;
-    @Column (name = "total" , unique = false , nullable = false)
+    @Column(name = "total", unique = false, nullable = false)
     private BigDecimal total;
 
     @ManyToOne()
-    @JoinColumn(name = "id_factura", insertable = false , updatable = false)
+    @JoinColumn(name = "id_factura", insertable = false, updatable = false)
     @MapsId("idFactura")
+    @ToString.Exclude
     private Factura factura;
-
-}
-
-@Embeddable
-  class pedidoPK {
-
-    @Column(name = "id_factura")
-    private int idFactura;
-    @Column(name = "id_producto")
-    private int idProducto;
-
 
 }

@@ -17,20 +17,15 @@ public class FacturaService {
     FacturaRepository facturaRepository;
 
     public List<Factura> getFacturas() {
-        System.out.println("entroAAAA");
         return facturaRepository.findAll();
     }
 
-    public Optional<Factura> getFactura(Integer idFactura) {
+    public Optional<Factura> getFactura(Long idFactura) {
         return facturaRepository.findById(idFactura);
     }
 
     public void saveOrUpdate(Factura factura) {
         facturaRepository.save(factura);
-    }
-
-    public void delete(Integer idFactura) {
-        facturaRepository.deleteById(idFactura);
     }
 
 

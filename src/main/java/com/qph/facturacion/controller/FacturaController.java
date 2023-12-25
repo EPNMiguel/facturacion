@@ -18,16 +18,14 @@ public class FacturaController {
     @Autowired
     private FacturaService facturaService;
 
-     @GetMapping
-     public List<Factura> getFacturas(){
-         System.out.println("EntroBBB");
-         return this.facturaService.getFacturas();
-     }
+    @GetMapping
+    public List<Factura> getAll() {
+        return this.facturaService.getFacturas();
+    }
 
     @GetMapping("/{idFactura}")
-    public Optional<Factura> getOne(int idFactura) {
+    public Optional<Factura> getOne(@PathVariable Long idFactura) {
         return facturaService.getFactura(idFactura);
-
     }
 
     @PostMapping
@@ -35,10 +33,6 @@ public class FacturaController {
         facturaService.saveOrUpdate(factura);
     }
 
-    @DeleteMapping("/{idFactura}")
-    public void delete(@PathVariable("idFactura") int idFactura) {
-        facturaService.delete(idFactura);
-    }
 
 }
 

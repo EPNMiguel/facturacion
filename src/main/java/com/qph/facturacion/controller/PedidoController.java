@@ -22,7 +22,7 @@ public class PedidoController {
     }
 
     @PostMapping
-    public void setOrUpdate(@RequestBody Pedido pedido) {
+    public void saveOrUpdate(@RequestBody Pedido pedido) {
         pedidoService.saveOrUpdate(pedido);
     }
 

@@ -3,11 +3,14 @@ package com.qph.facturacion.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 
+
+@Data
 @Entity
 @Table(name = "cliente")
 
-public class Cliente {
+public class Cliente  implements Serializable {
 
     @Id
     @Column(name = "cedula" , unique = true, nullable = false)
@@ -65,5 +68,13 @@ public class Cliente {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }
