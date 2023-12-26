@@ -12,23 +12,23 @@ import java.math.BigDecimal;
 @Table(name = "pedido")
 public class Pedido implements Serializable {
 
-    @EmbeddedId
-    private PedidoPK id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idPedido", unique = true, nullable = false)
+    private long idPedido;
+
+    @Column(name = "id_factura", unique = false, nullable = false)
+    private long idFactura;
+
+    @Column(name = "sku", unique = false, nullable = false)
+    private long idProducto;
 
     @Column(name = "cantidad", unique = false, nullable = false)
     private int cantidad;
     @Column(name = "subtotal", unique = false, nullable = false)
-    private BigDecimal subtotal;
+    private double subtotal;
     @Column(name = "iva", unique = false, nullable = false)
-    private BigDecimal iva;
+    private int iva;
     @Column(name = "total", unique = false, nullable = false)
-    private BigDecimal total;
-
-    @ManyToOne
-    @JoinColumn(name = "idfactura", insertable = false, updatable = false)
-    @MapsId("factura")
-    @ToString.Exclude
-    private Factura factura;
-
-
+    private double total;
 }

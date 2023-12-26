@@ -18,8 +18,6 @@ public class Factura implements Serializable {
     @Column(name = "idfactura", unique = true, nullable = false)
     private long idfactura;
 
-    @OneToMany(mappedBy = "factura", cascade = CascadeType.PERSIST)
-    private List<Pedido> pedido;
     @ManyToOne()
     @JoinColumn(name = "id_cliente", referencedColumnName = "cedula", nullable = false)
     private Cliente cliente;

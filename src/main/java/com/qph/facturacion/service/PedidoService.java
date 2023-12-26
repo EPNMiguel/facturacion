@@ -17,8 +17,8 @@ public class PedidoService {
         return pedidoRepository.findAll();
     }
 
-    public Optional<Pedido> getPedido(Integer idPedido) {
-        return pedidoRepository.findById(idPedido);
+    public Optional<Pedido> getPedido(Integer idFactura) {
+        return pedidoRepository.findById(idFactura);
     }
 
     public void saveOrUpdate(Pedido pedido) {
