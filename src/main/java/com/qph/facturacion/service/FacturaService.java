@@ -24,7 +24,7 @@ public class FacturaService {
         return facturaRepository.findById(idFactura);
     }
 
-    public void saveOrUpdate(Factura factura) {
+    public void guardarFactura(Factura factura) {
         facturaRepository.save(factura);
     }
 

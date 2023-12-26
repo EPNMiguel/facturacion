@@ -24,10 +24,11 @@ public class Pedido implements Serializable {
     @Column(name = "total", unique = false, nullable = false)
     private BigDecimal total;
 
-    @ManyToOne()
-    @JoinColumn(name = "id_factura", insertable = false, updatable = false)
-    @MapsId("idFactura")
+    @ManyToOne
+    @JoinColumn(name = "idfactura", insertable = false, updatable = false)
+    @MapsId("factura")
     @ToString.Exclude
     private Factura factura;
+
 
 }

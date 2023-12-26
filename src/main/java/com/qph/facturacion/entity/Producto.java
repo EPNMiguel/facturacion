@@ -11,8 +11,8 @@ import java.io.Serializable;
 public class Producto  implements Serializable {
 
     @Id
-    @Column(name = "SKU" , unique = true, nullable = false)
-    private Long sku;
+    @Column(name = "sku" , unique = true, nullable = false)
+    private long sku;
     @Column(name = "descripcion" , unique = false, nullable = false)
     private String descripcion;
     @Column(name = "precio" , unique = false, nullable = false)
@@ -20,11 +20,11 @@ public class Producto  implements Serializable {
     @Column(name = "IVA" , unique = false, nullable = false)
     private byte iva;
 
-    public Long getSku() {
+    public long getSku() {
         return sku;
     }
 
-    public void setSku(Long sku) {
+    public void setSku(long sku) {
         this.sku = sku;
     }
 

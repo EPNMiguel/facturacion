@@ -15,9 +15,11 @@ public class Factura implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_factura", unique = true, nullable = false)
-    private Long idFactura;
+    @Column(name = "idfactura", unique = true, nullable = false)
+    private long idfactura;
 
+    @OneToMany(mappedBy = "factura", cascade = CascadeType.PERSIST)
+    private List<Pedido> pedido;
     @ManyToOne()
     @JoinColumn(name = "id_cliente", referencedColumnName = "cedula", nullable = false)
     private Cliente cliente;
@@ -26,6 +28,5 @@ public class Factura implements Serializable {
     @CreationTimestamp
     private LocalDateTime creationDate;
     
-    @OneToMany(mappedBy = "factura", cascade = CascadeType.PERSIST)
-    private List<Pedido> pedidos;
+
 }

@@ -29,8 +29,8 @@ public class FacturaController {
     }
 
     @PostMapping
-    public void setOrUpdate(@RequestBody Factura factura) {
-        facturaService.saveOrUpdate(factura);
+    public void saveFactura(@RequestBody Factura factura) {
+        facturaService.guardarFactura(factura);
     }
 
 
