@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -29,7 +30,7 @@ public class ClienteController {
 
 
     @PostMapping
-    public ResponseEntity<Object> saveCliente(@RequestBody Cliente cliente) {
+    public Map<String, Integer> saveCliente(@RequestBody Cliente cliente) {
         return clienteService.save(cliente);
     }
 

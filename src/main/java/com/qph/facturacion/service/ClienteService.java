@@ -8,7 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.net.http.HttpResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -24,22 +26,23 @@ public class ClienteService {
         return clienteRepository.findByCedula(cedula);
     }
 
-    public ResponseEntity<Object> save(Cliente cliente) {
+    public Map<String, Integer> save(Cliente cliente) {
+        HashMap<String, Integer> map = new HashMap<>();
+
         List<Cliente> res = clienteRepository.findByCedula(cliente.getCedula());
         System.out.println(" cliente.getCedula()" + cliente.getCedula());
 
         if (res.isEmpty()) {
             System.out.println("Estoy vacio, debo guardar cliente");
             clienteRepository.save(cliente);
-            return new ResponseEntity<>(
-                    HttpStatus.OK
-            );
+            map.put("rol", 1);
+
         } else {
             System.out.println("Estoy lleno, no hago nada");
-            return new ResponseEntity<>(
-                    HttpStatus.CONFLICT
-            );
+            map.put("rol", 0);
         }
+        return map;
+
     }
 
     public ResponseEntity<Object> update(Cliente cliente) {
