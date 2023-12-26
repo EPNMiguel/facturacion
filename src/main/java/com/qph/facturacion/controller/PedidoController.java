@@ -5,6 +5,7 @@ import com.qph.facturacion.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -15,9 +16,15 @@ public class PedidoController {
     @Autowired
     private PedidoService pedidoService;
 
-    @GetMapping("/{idPedido}")
-    public Optional<Pedido> getOne(int idPedido) {
-        return pedidoService.getPedido(idPedido);
+    @GetMapping
+    public List<Pedido> getAll(Integer idPedido) {
+        return pedidoService.getPedidos();
+
+    }
+
+    @GetMapping("/{idFactura}")
+    public List<Pedido> getOne(@PathVariable Long idFactura) {
+        return pedidoService.getPedido(idFactura);
 
     }
 
